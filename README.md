@@ -1,5 +1,5 @@
 # Neural-Net-for-MNIST
-A simple Neural Network to classify MNIST data.
+A simple Neural Network to classify MNIST data implemented from scratch using Numpy.
 
 Feed forward fully connected artificial neural network for classification of handwritten digits data from MNIST using relu for hidden layers activations and softmax for output layer activation.
 
