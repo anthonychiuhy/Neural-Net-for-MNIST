@@ -7,7 +7,7 @@ Cost function is minimised using the Adam optimisation algorithm.
 
 The script shows that even with a relatively simple neural network with one hidden layer and few nodes could classify the digits quite accurately (>90 % for test set).
 
-The number of layers of the neural network in this script could be easily modified by redefining the layerdims varaiable.
+The number of layers of the neural network in this script could be easily modified by redefining the layerdims variable.
 
 The full set of training and testing hand written digits data from MNIST must be present for the Python script to run.
 
