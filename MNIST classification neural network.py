@@ -173,7 +173,7 @@ def backwardprop(Ypred, Y, lambd, params, cacheZA):
 np.random.seed(0)
 # Define neural network architecture
 nX = 28*28
-nh1 = 100
+nh1 = 50
 nY = 10
 layerdims = (nX, nh1, nY)
 
@@ -183,7 +183,7 @@ lambd = 0.0001 # Regularisation parameter
 alpha = 0.001 # learning rate
 beta1 = 0.9 # First moment
 beta2 = 0.999 # Second moment
-epochs = 1
+epochs = 50
 batchsize = 100
 
 # Initialise trainable parameters
@@ -226,7 +226,8 @@ for epoch in range(epochs):
         #graddescent(params, grads, alpha)
         
     print('Epoch:', epoch + 1, ', Cost:', Jbatches[-1])
-        
+
+# Show results
 plt.plot(Jbatches)
 plt.xlabel('Number of updates')
 plt.ylabel('Cross entropy loss')
