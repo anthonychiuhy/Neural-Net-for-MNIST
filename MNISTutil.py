@@ -21,14 +21,27 @@ def readMNIST():
         Ytestlabel = np.fromfile(fl, dtype=np.uint8) # labels as unsigned interger (0 - 255)
     return Xtrain, Xtest, Ytrainlabel, Ytestlabel
 
-def prepareXY(Xtrain, Xtest, Ytrainlabel, Ytestlabel, mtrain, mtest, nX, nY):
+def prepareXY(Xtrain, Xtest, Ytrainlabel, Ytestlabel, mtrain, mtest, nX, nY, batchdim ='first'):
     # Prepare training and testing data
-    # Reshape and normalise X
-    Xtrain = Xtrain.reshape((mtrain, nX)).T/255
-    Xtest = Xtest.reshape((mtest, nX)).T/255
-    # Use one hot representation for Y
-    Ytrain = np.zeros((nY, mtrain))
-    Ytrain[Ytrainlabel, np.arange(mtrain)] = 1
-    Ytest = np.zeros((nY, mtest))
-    Ytest[Ytestlabel, np.arange(mtest)] = 1
+    # Normalise X
+    Xtrain = Xtrain/255
+    Xtest = Xtest/255
+    if batchdim == 'first':
+        # Reshape X
+        Xtrain = Xtrain.reshape((mtrain, nX))
+        Xtest = Xtest.reshape((mtest, nX))
+        # Use one hot representation for Y
+        Ytrain = np.zeros((mtrain, nY))
+        Ytrain[np.arange(mtrain), Ytrainlabel] = 1
+        Ytest = np.zeros((mtest, nY))
+        Ytest[np.arange(mtest), Ytestlabel] = 1
+    elif batchdim == 'last':
+        # Reshape X
+        Xtrain = Xtrain.reshape((mtrain, nX)).T
+        Xtest = Xtest.reshape((mtest, nX)).T
+        # Use one hot representation for Y
+        Ytrain = np.zeros((nY, mtrain))
+        Ytrain[Ytrainlabel, np.arange(mtrain)] = 1
+        Ytest = np.zeros((nY, mtest))
+        Ytest[Ytestlabel, np.arange(mtest)] = 1
     return Xtrain, Xtest, Ytrain, Ytest
