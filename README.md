@@ -1,5 +1,7 @@
 # Neural-Net-for-MNIST
-A simple Neural Network to classify MNIST data implemented from scratch using Numpy.
+A simple Neural Network to classify MNIST data.
+
+Implementations from scratch using Numpy or using the Keras library.
 
 Feed forward fully connected artificial neural network for classification of handwritten digits data from MNIST using relu for hidden layers activations and softmax for output layer activation.
 
@@ -9,7 +11,7 @@ The script shows that even with a relatively simple neural network with one hidd
 
 The number of layers of the neural network in this script could be easily modified by redefining the layerdims variable.
 
-The full set of training and testing hand written digits data from MNIST must be present for the Python script to run.
+The full set of training and testing hand written digits data from the MNIST dataset (uncompressed) must be present for the Python script to run.
 
-Download MNIST hand written digits data here:
+Download the MNIST hand written digits dataset (compressed) here:
 http://yann.lecun.com/exdb/mnist/
